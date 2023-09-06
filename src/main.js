@@ -6,6 +6,13 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faUserSecret, faTwitter)
+
 //Importación modulos externos instalados
 import 'bootstrap/dist/css/bootstrap.css'
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
@@ -17,5 +24,5 @@ app.use(bootstrap)
 app.config.globalProperties.axios = axios;
 app.use(createPinia())
 app.use(router)
-
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
