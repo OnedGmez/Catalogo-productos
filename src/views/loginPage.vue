@@ -72,6 +72,20 @@
   position: relative;
 }
 
+form .form-control{
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-bottom: solid 1.5px var(--vt-c-grey);  
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 220ms ease-in-out;
+}
+
+form .form-label{
+  color: var(--vt-c-grey);
+}
+
 /*Anular animaciones por defecto de bootstrap*/
 form .form-control:focus{
   outline: none;
