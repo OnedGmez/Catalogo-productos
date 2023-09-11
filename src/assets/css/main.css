@@ -1,1 +1,36 @@
 @import './base.css';
+
+a{
+    text-decoration: none;
+    color: var(--vt-c-grey);
+}
+
+a:hover{
+    color: var(--vt-c-orange);
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.search-bar-filter{
+    padding: 0 30px;
+    display: flex;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.filter{
+    margin-left: 15px;
+}
+
+.top-menu{
+    margin-bottom: 15px;
+}
+
+.modal {
+    backdrop-filter: blur(2.5px);
+}

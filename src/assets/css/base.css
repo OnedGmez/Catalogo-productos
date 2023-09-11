@@ -6,9 +6,11 @@
 
   /* Principal Colors */
   --vt-c-grey: #7F7F7F;
+  --vt-c-soft-grey: #ebebeb;
 
   --vt-c-green: #00BFA6;
   --vt-c-orange: #E85617;
+  --vt-c-orange-non-hover: #c34610;
 }
 
 *,
