@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="option-contact">
-        <span> Contactanos </span>
+        <span> Contáctanos </span>
       </div>
     </div>
     <div @click="states.dropdownMenu" :class="[states.activeDropdownMenu == true ?'selected': '']" class="profile">
@@ -24,7 +24,7 @@
   <div :class="[states.activeDropdownMenu == true ?'show-dropdown': '']" class="dropdown-menu-special">
     <ul class="options-dropdown">
       <li>Cuenta</li>
-      <li>Carrito de compras</li>
+      <li @click="goShoppingCart">Carrito de compras</li>
       <li>Cerrar sesión</li>
     </ul>
   </div>
@@ -137,6 +137,16 @@
 
 <script setup>
 import { useStates } from '../stores/storeStates';
+import router from "@/router";
+
+const dateV = new Date();
+const date = String(dateV.getDate()).padStart(2, '0') + '-' + String(dateV.getMonth()+1).padStart(2,"0") + '-' + dateV.getFullYear();;
 
 const states = useStates();
+const user = 'Prueba';
+
+function goShoppingCart(){
+  states.dropdownMenu()
+  router.push({ name: 'shopping-Cart', params:  { user, date }});
+}
 </script>
