@@ -17,8 +17,7 @@
       <main id="shopping-cart">
         <div class="container-fluid">
           <div class="row">
-            <productsCard @click="states.modalActions"></productsCard>
-            <productsCard @click="states.modalActions"></productsCard>
+            <shoppingCartCard></shoppingCartCard>
           </div>
         </div>
       </main>
@@ -39,9 +38,10 @@ import { ref } from 'vue'
 import { useStates } from '../stores/storeStates';
 const states = useStates();
 
-import productsCard from "../components/productsCard.vue";
+
 import searchBar from "../components/searchBar.vue";
 import filterbutton from "../components/filterbutton.vue";
 import menuTop from "../components/menuTop.vue";
+import shoppingCartCard from '../components/shoppingCartCard.vue';
 
 </script>

@@ -71,7 +71,7 @@
 }
 
 #mid-right-form .form-right{
-  width: 70%;
+  width: 60%;
   box-shadow: 0px 10px 35px #000000ab;
   padding: 0 20px 15px 20px;
   border-radius: calc(1em + .9vw);
@@ -117,7 +117,7 @@ form .form-label{
 }
 
 #mid-right-form .button-login{
-  width: 60%;
+  width: 50%;
   background-color: var(--vt-c-orange);
   text-align: center;
   font-size: calc(1rem + .3vw);
