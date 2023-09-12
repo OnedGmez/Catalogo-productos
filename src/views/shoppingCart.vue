@@ -14,16 +14,16 @@
       </div>
     </div>
     <div class="content-web">
-      <main id="principal-page">
+      <main id="shopping-cart">
         <div class="container-fluid">
           <div class="row">
+            <productsCard @click="states.modalActions"></productsCard>
             <productsCard @click="states.modalActions"></productsCard>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <modalProducts v-if="states.openModalDP == true" @emitir-o-c="() => states.modalActions()"></modalProducts>
 </template>
 
 <style scoped>
@@ -43,6 +43,5 @@ import productsCard from "../components/productsCard.vue";
 import searchBar from "../components/searchBar.vue";
 import filterbutton from "../components/filterbutton.vue";
 import menuTop from "../components/menuTop.vue";
-import modalProducts from "../components/modalProducts.vue";
 
 </script>
