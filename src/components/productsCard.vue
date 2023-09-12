@@ -1,6 +1,9 @@
 <template>
   <div class="card-container col-xl-2">
     <div class="card">
+        <span class="favorite">
+            <font-awesome-icon icon="heart" />
+        </span>
     <div class="product-img">
         <img src="../assets/img/5257994.png" class="card-img-top img-fluid" alt="..." />
     </div>
@@ -8,7 +11,8 @@
       <h5 class="card-title">$Product-descript</h5>
       <div class="info-product">
         <div class="category-brand">
-            <span>Category - Brand</span>
+            <span>Category - SubCategory</span>
+            <span>Brand</span>
         </div>
         <div class="price">
             <span>$Price</span>
@@ -20,14 +24,13 @@
 </template>
 
 <style scoped>
-@import "../assets/css/base.css";
 @import "../assets/css/main.css";
-@import "../assets/css/animaciones-forms.css";
 
 .card-container{
     display: flex;
     height: fit-content;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .card-container .card{
@@ -49,17 +52,39 @@
     padding: var(--bs-card-spacer-y) 0.65rem;
 }
 
+.card-body .card-title{
+    font-weight: 800;
+    font-size: calc(1rem + 0.15em);
+    margin-bottom: 0;
+    text-wrap: nowrap;
+}
+
 .card-body .info-product{
     display: flex;
     justify-content: space-between;
 }
 
-.info-product .category-brand{
+.info-product .category-brand {
     color: var(--vt-c-green);
+    font-size: calc(0.75rem + .005em);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.info-product .category-brand > span{
+    font-weight: 600;
 }
 
 .info-product .price{
     color: var(--vt-c-orange);
+    text-align: center;
+    display: flex;
+}
+
+.info-product .price > span{
+    font-weight: 700;
+    margin: auto 0;
 }
 </style>
 

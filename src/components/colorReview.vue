@@ -9,7 +9,7 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 </style>
 
