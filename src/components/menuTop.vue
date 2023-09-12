@@ -21,11 +21,11 @@
       </span>
     </div>
   </div>
-  <div :class="[states.activeDropdownMenu == true ?'show-dropdown': '']" class="dropdown-menu-special">
+  <div :class="[states.activeDropdownMenu == true?['show-dropdown', paramsRoute.name + '-show-dropdown']: '']" class="dropdown-menu-special">
     <ul class="options-dropdown">
-      <li>Cuenta</li>
+      <li @click="goAccount">Cuenta</li>
       <li @click="goShoppingCart">Carrito de compras</li>
-      <li>Cerrar sesión</li>
+      <li @click="closeSesion">Cerrar sesión</li>
     </ul>
   </div>
 </template>
@@ -116,6 +116,10 @@
     z-index: 1;
 }
 
+.shopping-Cart-show-dropdown{
+    top: 80%;
+}
+
 .dropdown-menu-special .options-dropdown{
     list-style-type: none;
     padding: 0;
@@ -138,7 +142,9 @@
 <script setup>
 import { useStates } from '../stores/storeStates';
 import router from "@/router";
+import { useRoute } from "vue-router";
 
+const paramsRoute = useRoute();
 const dateV = new Date();
 const date = String(dateV.getDate()).padStart(2, '0') + '-' + String(dateV.getMonth()+1).padStart(2,"0") + '-' + dateV.getFullYear();;
 
@@ -148,5 +154,14 @@ const user = 'Prueba';
 function goShoppingCart(){
   states.dropdownMenu()
   router.push({ name: 'shopping-Cart', params:  { user, date }});
+}
+
+function closeSesion(){
+  states.dropdownMenu()
+  router.push('/');
+}
+
+function goAccount(){
+  console.log('')
 }
 </script>
