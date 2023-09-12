@@ -1,19 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import login from '../views/loginPage.vue'
 import principalPage from '../views/principalPage.vue'
+import shoppingCart from '../views/shoppingCart.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/login',
       name: 'login',
-      component: login
+      component: login,
+      alias: '/'
     },
     {
-      path: '/principal',
-      name: 'principal Page',
+      path: '/principal/:user/',
+      name: 'principal-Page',
       component: principalPage
+    },
+    {
+      path: '/shopping-cart/:user/:date/',
+      name: 'shopping-Cart',
+      component: shoppingCart
     }
   ]
 })
