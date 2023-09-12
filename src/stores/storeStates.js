@@ -20,8 +20,8 @@ export const useStates = defineStore("states", () => {
     } else {
       if(activeDropdownMenu.value == true){
         activeDropdownMenu.value = !activeDropdownMenu.value;
-        openModalDP.value = true;
       }
+      openModalDP.value = true;
     }
   }
 
