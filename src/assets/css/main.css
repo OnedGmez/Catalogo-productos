@@ -27,10 +27,54 @@ a:hover{
     margin-left: 15px;
 }
 
+.selected{
+    background-color: var(--vt-c-orange)!important;
+    color: #FFF;
+}
+
 .top-menu{
     margin-bottom: 15px;
 }
 
 .modal {
     backdrop-filter: blur(2.5px);
+    --bs-modal-width: 435px !important;
+}
+
+.modal-body{
+    padding-top: 0!important;
+}
+
+#top-site-bar{
+    position: fixed;
+    top: 0;
+    background-color: var(--vt-c-white);
+    z-index: 1;
+    width: 100%;
+}
+
+.favorite{
+    position: absolute;
+    right: 0;
+    margin: 5px 15px 0 0;
+    font-size: calc(1rem + .15em);
+}
+
+.favorite:hover{
+    cursor: pointer;
+    color: var(--vt-c-orange);
+}
+
+.selected-letter{
+    color:  var(--vt-c-orange);
+}
+
+.buttons{
+    display: flex;
+    justify-content: end;
+    padding: 6px 16px 12px 16px;
+}
+
+.label{
+    font-weight: 600;
 }
