@@ -9,7 +9,7 @@ a:hover{
     color: var(--vt-c-orange);
 }
 
-.form-control:focus{
+.form-control:focus, .control-number:focus{
     outline: none;
     box-shadow: none;
 }
@@ -76,5 +76,5 @@ a:hover{
 }
 
 .label{
-    font-weight: 600;
+    font-weight: 600 !important;
 }
