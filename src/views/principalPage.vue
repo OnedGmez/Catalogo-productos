@@ -17,31 +17,32 @@
       <main>
         <div class="container-fluid">
           <div class="row">
-            <productsCard></productsCard>
-            <productsCard></productsCard>
-            <productsCard></productsCard>
-            <productsCard></productsCard>
-            <productsCard></productsCard>
-            <productsCard></productsCard>
+            <productsCard @click="states.modalActions"></productsCard>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <modalProducts></modalProducts>
+  <modalProducts v-if="states.openModalDP == true" @emitir-o-c="() => states.modalActions()"></modalProducts>
 </template>
 
 <style scoped>
 .content .content-web {
-  margin-top: 20px;
+  margin-top: 105px;
   padding: 0 30px;
 }
 </style>
 
 <script setup>
+import { ref } from 'vue'
+
+import { useStates } from '../stores/storeStates';
+const states = useStates();
+
 import productsCard from "../components/productsCard.vue";
 import searchBar from "../components/searchBar.vue";
 import filterbutton from "../components/filterbutton.vue";
 import menuTop from "../components/menuTop.vue";
 import modalProducts from "../components/modalProducts.vue";
+
 </script>
