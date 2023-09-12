@@ -15,14 +15,10 @@ export const useStates = defineStore("states", () => {
    * Show/hide the detailed products modal
    */
   function modalActions() {
-    if (openModalDP.value == true) {
-      openModalDP.value = false;
-    } else {
-      if(activeDropdownMenu.value == true){
-        activeDropdownMenu.value = !activeDropdownMenu.value;
+    if(activeDropdownMenu.value){
+        dropdownMenu();
       }
-      openModalDP.value = true;
-    }
+      openModalDP.value = !openModalDP.value;
   }
 
   /**
@@ -33,10 +29,11 @@ export const useStates = defineStore("states", () => {
     activeDropdownMenu.value = !activeDropdownMenu.value;
   }
 
+
   return {
     openModalDP,
     activeDropdownMenu,
     dropdownMenu,
-    modalActions,
+    modalActions
   };
 });
