@@ -152,13 +152,11 @@ import { ref } from "vue";
 const email = ref('');
 const pass = ref('');
 
-const user = 'Prueba';
-
 function LogIn(){
   var regexp =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
   if((email.value != '' && pass.value != '') && regexp.test(email.value)){
-    router.push({ name: 'principal-Page', params:  { user }});
+    router.push({ name: 'principal-Page'});
   }else{
     console.log('Correo y/o contraseña invalido')
   }
