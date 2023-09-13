@@ -17,13 +17,17 @@
       <main id="principal-page">
         <div class="container-fluid">
           <div class="row">
-            <productsCard @click="states.modalActions"></productsCard>
+            <productsCard @click="states.modalProductsActions"></productsCard>
+            <productsCard @click="states.modalProductsActions"></productsCard>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <modalProducts v-if="states.openModalDP == true" @emitir-o-c="() => states.modalActions()"></modalProducts>
+
+  <!--Here the modals with vue router (all specified childrens) is opened-->
+  <!--Aqui se abre los modales con vue router (todos los hijos indicados)-->
+  <router-view/>
 </template>
 
 <style scoped>
