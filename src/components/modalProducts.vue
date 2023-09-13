@@ -1,5 +1,5 @@
 <template>
-  <div @keyup.esc="emitirCerrar" class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block">
+  <div @keyup.esc="states.modalProductsActions()" class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="buttons">
-          <buttonSpecial @click="emitirCerrar" tipe="secondary" text="Cancelar"></buttonSpecial>
+          <buttonSpecial @click="states.modalProductsActions()" tipe="secondary" text="Cancelar"></buttonSpecial>
           <buttonSpecial tipe="primary" text="Agregar al carrito"></buttonSpecial>
         </div>
       </div>
@@ -89,12 +89,8 @@
 import { ref } from 'vue'
 import buttonSpecial from "./buttonSpecial.vue";
 import colorReview from "./colorReview.vue";
+import { useStates } from '../stores/storeStates';
 
-const emitsModal = defineEmits([
-  'emitirOC'
-])
+const states = useStates()
 
-function emitirCerrar(){
-  emitsModal('emitirOC')
-}
 </script>

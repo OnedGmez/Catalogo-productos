@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container col-xl-2">
+  <div class="card-container col-6 col-sm-4 col-md-3 col-xl-2">
     <div class="card">
         <span class="favorite">
             <font-awesome-icon icon="heart" />
@@ -11,7 +11,7 @@
       <h5 class="card-title">$Product-descript</h5>
       <div class="info-product">
         <div class="category-brand">
-            <span>Category - SubCategory</span>
+            <span>Hombre - Boxer</span>
             <span>Brand</span>
         </div>
         <div class="price">

@@ -146,10 +146,14 @@ import { useRoute } from "vue-router";
 
 const paramsRoute = useRoute();
 const dateV = new Date();
-const date = String(dateV.getDate()).padStart(2, '0') + '-' + String(dateV.getMonth()+1).padStart(2,"0") + '-' + dateV.getFullYear();;
+const date = String(dateV.getDate()).padStart(2, '0') + '-' + String(dateV.getMonth()+1).padStart(2,"0") + '-' + dateV.getFullYear();
 
 const states = useStates();
 const user = 'Prueba';
+
+function goAccount(){
+  states.modalAccountConfig()
+}
 
 function goShoppingCart(){
   states.dropdownMenu()
@@ -159,9 +163,5 @@ function goShoppingCart(){
 function closeSesion(){
   states.dropdownMenu()
   router.push('/');
-}
-
-function goAccount(){
-  console.log('')
 }
 </script>
