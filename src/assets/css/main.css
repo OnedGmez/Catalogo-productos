@@ -69,6 +69,10 @@ a:hover{
     color:  var(--vt-c-orange);
 }
 
+.selected-border{
+    border-left: solid 4px var(--vt-c-orange);
+}
+
 .buttons{
     display: flex;
     justify-content: end;
@@ -77,4 +81,9 @@ a:hover{
 
 .label{
     font-weight: 600 !important;
+}
+
+input:disabled{
+    background-color: var(--vt-c-white);
+    color: var(--vt-c-grey);
 }
