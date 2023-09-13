@@ -3,6 +3,7 @@ import login from '../views/loginPage.vue'
 import principalPage from '../views/principalPage.vue'
 import shoppingCart from '../views/shoppingCart.vue'
 import modalProducts from '../components/modalProducts.vue'
+import modalAccount from '../components/modalAccount.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
           path: ':product',
           name: 'modal-Products',
           component: modalProducts,
+        },
+        {
+          path: 'Account/:user',
+          name: 'account-config',
+          component: modalAccount,
         }
       ]
     },
