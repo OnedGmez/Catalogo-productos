@@ -5,20 +5,42 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import router from "../router";
+import { useRoute } from "vue-router";
 
 export const useStates = defineStore("states", () => {
   const openModalDP = ref(false);
   const activeDropdownMenu = ref(false);
+  const routerParam = useRoute();
 
   /**
    * Mostrar/ocultar modal de detalles de productos
    * Show/hide the detailed products modal
    */
-  function modalActions() {
+  function modalProductsActions() {
     if(activeDropdownMenu.value){
         dropdownMenu();
       }
-      openModalDP.value = !openModalDP.value;
+      if(routerParam.name == 'modal-Products'){
+        router.replace({name: 'principal-Page'});
+      }else{
+        router.push({name: 'modal-Products', params: {product: '12555sad'}});
+      }
+  }
+
+  /**
+   * Mostrar/ocultar modal de configuración de cuenta
+   * Show/hide the account configuration modal
+   */
+  function modalAccountConfig() {
+    if(activeDropdownMenu.value){
+        dropdownMenu();
+      }
+      if(routerParam.name == 'account-config'){
+        router.replace({name: 'principal-Page'});
+      }else{
+        router.push({name: 'account-config', params: {user: 'Prueba'}});
+      }
   }
 
   /**
@@ -34,6 +56,7 @@ export const useStates = defineStore("states", () => {
     openModalDP,
     activeDropdownMenu,
     dropdownMenu,
-    modalActions
+    modalProductsActions,
+    modalAccountConfig
   };
 });
