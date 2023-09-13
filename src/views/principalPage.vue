@@ -12,22 +12,18 @@
           <filterbutton></filterbutton>
         </div>
       </div>
+      <div v-if="rol == 'admin'" class="new-product">
+        <buttonSpecial text="Nuevo producto" type="primary"></buttonSpecial>
+      </div>
     </div>
-    <div class="content-web">
+    <div :class="[rol == 'admin' ? 'content-web-admin': '']" class="content-web">
       <main id="principal-page">
-        <div class="container-fluid">
-          <div class="row">
-            <productsCard @click="states.modalProductsActions"></productsCard>
-            <productsCard @click="states.modalProductsActions"></productsCard>
-          </div>
-        </div>
+        <!--Here the modals and content with vue router (all specified childrens) is opened-->
+        <!--Aqui se abre los modales y contenido con vue router (todos los hijos indicados)-->
+        <router-view />
       </main>
     </div>
   </div>
-
-  <!--Here the modals with vue router (all specified childrens) is opened-->
-  <!--Aqui se abre los modales con vue router (todos los hijos indicados)-->
-  <router-view/>
 </template>
 
 <style scoped>
@@ -35,18 +31,48 @@
   margin-top: 105px;
   padding: 0 30px;
 }
+
+.content-web-admin{
+  margin-top: 160px!important;
+}
+
+.new-product{
+  margin: 15px 0;
+  padding: 0 30px;
+}
+
+/** Query to tablet */
+@media (max-width: 992px) {
+  .content .content-web {
+    padding: 0 25px;
+  }
+}
+
+/** Query to phone */
+@media (max-width: 768px) {
+  .content .content-web {
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+
+  .search-bar-filter {
+    display: none;
+  }
+
+  .admin{
+  margin-top: 105px!important;
+}
+}
 </style>
 
 <script setup>
 import { ref } from 'vue'
 
-import { useStates } from '../stores/storeStates';
-const states = useStates();
-
-import productsCard from "../components/productsCard.vue";
 import searchBar from "../components/searchBar.vue";
 import filterbutton from "../components/filterbutton.vue";
 import menuTop from "../components/menuTop.vue";
-import modalProducts from "../components/modalProducts.vue";
+import buttonSpecial from '../components/buttonSpecial.vue';
+
+const rol = ref('admin')
 
 </script>

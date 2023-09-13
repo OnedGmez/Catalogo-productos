@@ -15,11 +15,15 @@
               </span>
             </div>
             <shoppingCartCard></shoppingCartCard>
+            <shoppingCartCard></shoppingCartCard>
+            <shoppingCartCard></shoppingCartCard>
+            <shoppingCartCard></shoppingCartCard>
           </div>
         </div>
       </main>
     </div>
   </div>
+  <router-view />
 </template>
 
 <style scoped>
@@ -35,12 +39,30 @@
 }
 
 .welcome-client .label-welcome {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--vt-c-orange);
 }
 
-.welcome-client .label-welcome > span {
+.welcome-client .label-welcome>span {
   color: var(--vt-c-black);
+}
+
+/** Query to tablet */
+@media (max-width: 992px) {
+  .content .content-web {
+    padding: 0 25px;
+  }
+}
+
+/** Query to phone */
+@media (max-width: 768px) {
+  .content .content-web {
+    padding: 0 20px;
+  }
+
+  .welcome-client {
+    font-size: calc(1em + .18em);
+  }
 }
 </style>
 

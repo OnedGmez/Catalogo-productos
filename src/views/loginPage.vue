@@ -4,26 +4,25 @@
       <div class="row">
         <div id="mid-left-img" class="col-6">
           <div class="img-left">
-            <img class="img-fluid" src="../assets/img/LoginDesk.svg" alt="Login-Image"
-            />
+            <img class="img-fluid" src="../assets/img/LoginDesk.svg" alt="Login-Image" />
           </div>
         </div>
 
-        <div id="mid-right-form" class="col-6">
+        <div id="mid-right-form" class="col-12 col-md-6">
           <div class="form-right">
             <div class="avatar-div">
               <div></div>
             </div>
             <form>
               <div class="mb-3 div-input-form">
-                <input type="email" class="form-control" id="user-e-mail-input" placeholder=" " v-model = "email"/>
+                <input type="email" class="form-control" id="user-e-mail-input" placeholder=" " v-model="email" />
                 <label class="form-label">
                   <span class="span-label-input">Correo Eléctronico</span>
                 </label>
               </div>
 
               <div class="div-input-form">
-                <input type="password" class="form-control" id="password-input" placeholder=" " v-model="pass"/>
+                <input type="password" class="form-control" id="password-input" placeholder=" " v-model="pass" />
                 <label class="form-label">
                   <span class="span-label-input">Contraseña</span>
                 </label>
@@ -46,6 +45,10 @@
 @import "../assets/css/main.css";
 @import "../assets/css/animaciones-forms.css";
 
+* {
+  font-family: 'averia-sans-libre';
+}
+
 .row {
   height: 100vh;
 }
@@ -55,6 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 250ms ease-in-out;
 }
 
 #mid-left-img .img-left {
@@ -63,26 +67,27 @@
   display: flex;
 }
 
-#mid-right-form{
+#mid-right-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#mid-right-form .form-right{
+#mid-right-form .form-right {
   width: 60%;
+  background-color: var(--vt-c-white);
   box-shadow: 0px 10px 35px #000000ab;
   padding: 0 20px 15px 20px;
   border-radius: calc(1em + .9vw);
 }
 
-.form-right .forgot-password{
+.form-right .forgot-password {
   margin-bottom: 10px;
   padding: 0 0.75rem;
 }
 
-#mid-right-form .avatar-div{
+#mid-right-form .avatar-div {
   width: 75px;
   height: 75px;
   background-color: var(--vt-c-grey);
@@ -93,55 +98,97 @@
   margin: auto;
 }
 
-#mid-right-form .div-input-form{
+#mid-right-form .div-input-form {
   position: relative;
 }
 
-#mid-right-form .div-input-form:not(:first-child){
-  margin: 36px 0 18px 0;
+#mid-right-form .div-input-form:first-child {
+  margin: -20px 0 0 0;
 }
 
-form .form-control{
+#mid-right-form .div-input-form:not(:first-child) {
+  margin: 10px 0 18px 0;
+}
+
+form .form-control {
   border: none;
   width: 100%;
   height: 100%;
-  border-bottom: solid 1.5px var(--vt-c-grey);  
+  border-bottom: solid 1.5px var(--vt-c-grey);
   border-bottom-right-radius: calc(1em + 0.1vw);
   border-top-right-radius: calc(1em + 0.1vw);
   transition: all 220ms ease-in-out;
 }
 
-form .form-label{
+form .form-label {
   color: var(--vt-c-grey);
   padding: 0 0.75rem;
 }
 
-#mid-right-form .button-login{
+#mid-right-form .button-login {
   width: 50%;
+  font-family: 'concert-one';
   background-color: var(--vt-c-orange);
-  text-align: center;
-  font-size: calc(1rem + .3vw);
-  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(1rem + .5em);
+  font-weight: 600;
   color: var(--vt-c-white);
   border-bottom-right-radius: calc(1em + 0.1vw);
   border-bottom-left-radius: calc(1em + 0.1vw);
-  transition: all 150ms ease-in-out;
   box-shadow: inset 0px 5px 25px #000000ab;
-  padding: 2px 0 2px 0;
   position: relative;
+  transition: all 150ms ease-in-out;
 }
 
-#mid-right-form .button-login:hover{
+#mid-right-form .button-login:hover {
   cursor: pointer;
   box-shadow: inset 0px 5px 25px #00000081;
 }
 
 /*Anular animaciones por defecto de bootstrap*/
-form .form-control:focus{
+form .form-control:focus {
   border-bottom: solid 2px var(--vt-c-orange);
 }
 
+.form-control:not(:placeholder-shown) {
+  margin-top: 28px!important;
+}
 
+/** Query to tablet */
+@media (max-width: 992px) {
+  #mid-right-form .form-right {
+    width: 85%;
+  }
+
+  #mid-right-form .button-login {
+    width: 75%;
+  }
+}
+
+/** Query to phone */
+@media (max-width: 768px) {
+  #mid-left-img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    opacity: 75;
+  }
+
+  #mid-left-img .img-left {
+    display: none;
+  }
+
+  #mid-right-form .form-right {
+    width: 90%;
+  }
+
+  #mid-right-form .button-login {
+    width: 80%;
+  }
+}
 </style>
 
 <script setup>
@@ -152,12 +199,12 @@ import { ref } from "vue";
 const email = ref('');
 const pass = ref('');
 
-function LogIn(){
-  var regexp =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+function LogIn() {
+  var regexp = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
-  if((email.value != '' && pass.value != '') && regexp.test(email.value)){
-    router.push({ name: 'principal-Page'});
-  }else{
+  if ((email.value != '' && pass.value != '') && regexp.test(email.value)) {
+    router.push({ name: 'content-principal-page', params: { category: 'Novedades' } });
+  } else {
     console.log('Correo y/o contraseña invalido')
   }
 }
