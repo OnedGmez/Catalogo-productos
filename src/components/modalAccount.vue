@@ -1,5 +1,5 @@
 <template>
-    <div @keyup.esc="states.modalAccountConfig" class="modal fade show" id="exampleModal" tabindex="-1"
+    <div @keyup.esc="states.modalAccountConfig()" class="modal fade show" id="exampleModal" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -16,15 +16,15 @@
                                 </div>
                                 <div class="options-account-config">
                                     <ul class="options">
-                                        <li class="selected-border">Información general</li>
-                                        <li>Información de contacto</li>
-                                        <li>Información de ubicación</li>
-                                        <li>Cambiar contraseña</li>
+                                        <li @click="changeInfo('general')" :class="[content == 'general' ?'selected-border':'']">Información general</li>
+                                        <li @click="changeInfo('contact')" :class="[content == 'contact' ?'selected-border':'']">Información de contacto</li>
+                                        <li @click="changeInfo('location')" :class="[content == 'location' ?'selected-border':'']">Información de ubicación</li>
+                                        <li @click="changeInfo('change')" :class="[content == 'change' ?'selected-border':'']">Cambiar contraseña</li>
                                     </ul>
                                 </div>
                             </div>
                             <div id="mid-general-info" class="col-8">
-                                <div style="display: none;" id="general-information">
+                                <div v-if="content == 'general'" id="general-information">
                                     <div class="informacion-div">
                                         Información general
                                     </div>
@@ -69,7 +69,7 @@
                                         <input type="file" name="input-file-photo" id="change-profile-photo">
                                     </div>
                                 </div>
-                                <div style="display: none;" id="contact-information">
+                                <div v-if="content == 'contact'" id="contact-information">
                                     <div class="informacion-div">
                                         Información de Contacto
                                     </div>
@@ -86,7 +86,7 @@
                                             <input type="email" class="form-control" id="alternative-email-contact-input"
                                                 placeholder=" " value="onedg8@gmail.com" />
                                             <label class="form-label">
-                                                <span class="span-label-input">Correo eléctronico alternativo</span>
+                                                <span class="span-label-input">Correo eléctronico</span>
                                             </label>
                                         </div>
 
@@ -120,13 +120,13 @@
                                                 <input type="text" class="form-control" id="alternative-phone-number-input"
                                                     placeholder=" " value="8776 - 4313" />
                                                 <label class="form-label">
-                                                    <span class="span-label-input">Número de teléfono alternativo</span>
+                                                    <span class="span-label-input">Número de teléfono</span>
                                                 </label>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div style="display: none;" id="location-information">
+                                <div v-if="content == 'location'" id="location-information">
                                     <div class="informacion-div">
                                         Información de Localización
                                     </div>
@@ -171,7 +171,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div id="change-password">
+                                <div v-if="content == 'change'" id="change-password">
                                     <div class="informacion-div">
                                         Cambiar Contraseña
                                     </div>
@@ -327,8 +327,15 @@ form .form-label {
 </style>
 
 <script setup>
+import { useRoute } from "vue-router";
 import { ref } from "vue";
 import { useStates } from "../stores/storeStates";
 
 const states = useStates();
+const content = ref('general')
+const paramsRoute = useRoute()
+
+function changeInfo(name){
+    content.value = name;
+}
 </script>

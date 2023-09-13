@@ -1,6 +1,6 @@
 <template>
     <div class="filter-button">
-        <span class="button">
+        <span class="button d-flex">
             <font-awesome-icon icon="sliders" />
         </span>
     </div>
@@ -14,6 +14,7 @@
         justify-content: center;
         align-items: center;
         width: 35px;
+        height: 35px;
         border-radius: 25px 25px 25px 25px;
         transition: all 250ms ease-in-out;
     }

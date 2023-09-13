@@ -1,8 +1,8 @@
 <template>
-  <div class="card-container col-xl-4">
+  <div class="card-container col-12 col-sm-6 col-md-6 col-xl-4">
     <div class="card">
         <div class="product-img">
-            <img src="../assets/img/5257994.png" class="card-img-top img-fluid" alt="..." />
+            <img src="../assets/img/5257994.jpg" class="card-img-top img-fluid" alt="..." />
         </div>
         <div class="card-body">
             <div>
@@ -54,7 +54,7 @@
 
 .card .product-img {
   margin: 0 10px;
-  width: 80px;
+  width: calc(100% - 69%);;
   display: flex;
   align-items: center;
 }
@@ -119,7 +119,6 @@
 </style>
 
 <script setup>
-import { ref } from "vue";
 
 const propertiesCard = defineProps(["data"]);
 </script>
