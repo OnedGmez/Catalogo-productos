@@ -12,17 +12,22 @@ export const useStates = defineStore("states", () => {
   const openModalDP = ref(false);
   const activeDropdownMenu = ref(false);
   const routerParam = useRoute();
+  const isPhone = ref(false)
+
+  if(screen.width <= 678){
+    isPhone.value = true;
+  }
 
   /**
    * Mostrar/ocultar modal de detalles de productos
    * Show/hide the detailed products modal
    */
-  function modalProductsActions() {
+  function modalProductsActions(categoryRoute) {
     if(activeDropdownMenu.value){
         dropdownMenu();
       }
       if(routerParam.name == 'modal-Products'){
-        router.replace({name: 'principal-Page'});
+        router.replace({ name: 'content-principal-page', params:{category: categoryRoute}});
       }else{
         router.push({name: 'modal-Products', params: {product: '12555sad'}});
       }
@@ -36,10 +41,16 @@ export const useStates = defineStore("states", () => {
     if(activeDropdownMenu.value){
         dropdownMenu();
       }
-      if(routerParam.name == 'account-config'){
-        router.replace({name: 'principal-Page'});
+      if(routerParam.name == 'account-config' || routerParam.name == 'account-config-shopping'){
+        router.replace(router.back());
       }else{
-        router.push({name: 'account-config', params: {user: 'Prueba'}});
+        if(routerParam.name == 'content-principal-page'){
+          router.push({name: 'account-config', params: {user: 'user', category: 'Novedades'}});
+        }
+
+        if(routerParam.name == 'shopping-Cart'){
+          router.push({name: 'account-config-shopping', params: {user: 'user', date: '2023-09-13'}});
+        }
       }
   }
 
@@ -55,6 +66,7 @@ export const useStates = defineStore("states", () => {
   return {
     openModalDP,
     activeDropdownMenu,
+    isPhone,
     dropdownMenu,
     modalProductsActions,
     modalAccountConfig
